@@ -4,7 +4,7 @@ const Header=(props)=>{
 const openModal=()=>{
         document.querySelector(".form").classList.add("display");
     }
-   
+  
     return(
         <>
         
@@ -35,7 +35,7 @@ const openModal=()=>{
                        </form>
                </div>
                <div className="search">
-                   <input type="text" />
+                   <input type="text" onChange={props.seek} />
                </div>
            </div>
         </>

@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react';
+import React,{useState,useRef,useEffect} from 'react';
 import './App.css';
 import Header from './component/Header';
 import MovieCard from './component/MovieCard';
@@ -42,7 +42,7 @@ function App() {
      rating:"5"
   },
  ]);
- const [movie,setMovie]=useState({id:100,title:"Coupez",description:"Coupez fim dram",posterURL:"https://fr.web.img6.acsta.net/pictures/22/04/27/12/42/5834908.jpg",rating:"4"});
+const [movie,setMovie]=useState({id:100,title:"Coupez",description:"Coupez fim dram",posterURL:"https://fr.web.img6.acsta.net/pictures/22/04/27/12/42/5834908.jpg",rating:"4"});
 var count = 100;
 const title=useRef();
 const description=useRef();
@@ -63,9 +63,14 @@ const rating=useRef();
   setMovies([...movies, movie]);
 document.querySelector(".form").classList.remove("display");
 }
+
+const seek=(e)=>{
+  console.log(e.target.value);
+}
+
   return (
     <div className="App">
-      <Header movie={movie} setMovie={setMovie}  hSubmit={hSubmit} title={title} description={description} posterURL={posterURL} rating={rating} />
+      <Header movie={movie} setMovie={setMovie}  hSubmit={hSubmit} title={title} description={description} posterURL={posterURL} rating={rating} seek={seek} />
       <MovieCard MovieList={MovieList} movie={movies} setMovie={setMovies} />
     </div>
   );
