@@ -1,19 +1,10 @@
 import React from "react";
 const Header=(props)=>{
-    const openModal=()=>{
+
+const openModal=()=>{
         document.querySelector(".form").classList.add("display");
     }
-   const hSubmit =(e)=>{
-        const newMovie=[...props.movie,{
-            id: Date().getFullTime(),
-            title:(e.target.name==="title")&& e.target.value,
-            description:(e.target.name==="description")&& e.target.value,
-            posterURL:(e.target.name==="posterURL")&& e.target.value,
-            rating:(e.target.name==="rating") && e.target.value
-        }]
-        props.setMovie(newMovie);
-        console.log(e.target.name)
-   }
+   
     return(
         <>
         
@@ -25,18 +16,18 @@ const Header=(props)=>{
                    <button onClick={openModal}>Add movie</button>
                </div>
                <div className="form">
-                       <form onSubmit={hSubmit}>
+                       <form onSubmit={props.hSubmit}>
                            <div className="input">
-                              <input type="text" name="title"  placeholder="Title"  />
+                              <input type="text"  ref={props.title}  placeholder="Title" autoComplete="off" />
                            </div>
                            <div className="input">
-                              <input type="text" name="description"  placeholder="Description"   />
+                              <input type="text" ref={props.description}  placeholder="Description" autoComplete="off"  />
                            </div>
                            <div className="input">
-                              <input type="text" name="posterURL"  placeholder="PosterURL"  />
+                              <input type="text"  ref={props.posterURL} placeholder="PosterURL" autoComplete="off" />
                            </div>
                            <div className="input">
-                              <input type="text" name="rating"  placeholder="rating"  />
+                              <input type="text" ref={props.rating}  placeholder="rating" autoComplete="off"  />
                            </div>
                            <div className="button ">
                              <button type="submit" >Send</button>

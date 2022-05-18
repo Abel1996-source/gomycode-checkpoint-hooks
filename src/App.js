@@ -1,11 +1,9 @@
-import React,{useState} from 'react';
+import React,{useState,useRef} from 'react';
 import './App.css';
 import Header from './component/Header';
 import MovieCard from './component/MovieCard';
 import MovieList from './component/MovieList'
-import { useForm } from "react-hook-form";
 function App() {
-const { register, handleSubmit } = useForm();
  const [movies,setMovies]=useState([
    { id:1,
      title:"uncharted",
@@ -44,9 +42,30 @@ const { register, handleSubmit } = useForm();
      rating:"5"
   },
  ]);
+ const [movie,setMovie]=useState({id:100,title:"Coupez",description:"Coupez fim dram",posterURL:"https://fr.web.img6.acsta.net/pictures/22/04/27/12/42/5834908.jpg",rating:"4"});
+var count = 100;
+const title=useRef();
+const description=useRef();
+const posterURL=useRef();
+const rating=useRef();
+
+ const hSubmit =(e)=>{
+
+  e.preventDefault();
+   const newMovie={
+       id:count++,
+       title:title.current.value,
+       description:description.current.value,
+       posterURL:posterURL.current.value,
+       rating:rating.current.value
+   }
+  setMovie(newMovie);
+  setMovies([...movies, movie]);
+document.querySelector(".form").classList.remove("display");
+}
   return (
     <div className="App">
-      <Header movie={movies} setMovie={setMovies} register={register} handleSubmit={handleSubmit} />
+      <Header movie={movie} setMovie={setMovie}  hSubmit={hSubmit} title={title} description={description} posterURL={posterURL} rating={rating} />
       <MovieCard MovieList={MovieList} movie={movies} setMovie={setMovies} />
     </div>
   );
