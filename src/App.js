@@ -1,8 +1,11 @@
-import React,{useState,useRef,useEffect} from 'react';
+import React,{useState,useRef} from 'react';
+import { Routes,Route } from 'react-router-dom';
 import './App.css';
 import Header from './component/Header';
 import MovieCard from './component/MovieCard';
-import MovieList from './component/MovieList'
+import MovieList from './component/MovieList';
+import Description from './component/Description';
+import AddMovie from "./component/AddMovie";
 function App() {
  const [movies,setMovies]=useState([
    { id:1,
@@ -70,8 +73,12 @@ const seek=(e)=>{
 
   return (
     <div className="App">
-      <Header movie={movie} setMovie={setMovie}  hSubmit={hSubmit} title={title} description={description} posterURL={posterURL} rating={rating} seek={seek} />
-      <MovieCard MovieList={MovieList} movie={movies} setMovie={setMovies} />
+      <Header  seek={seek} />
+      
+      <Routes>
+          <Route path='/' element={<MovieCard MovieList={MovieList} movie={movies} setMovie={setMovies} AddMovie={AddMovie} movies={movie} setMovies={setMovie}  hSubmit={hSubmit} title={title} description={description} posterURL={posterURL} rating={rating} />} />
+          <Route path='/description' element={<Description  />} />
+      </Routes>
     </div>
   );
 } 

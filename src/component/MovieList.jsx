@@ -1,12 +1,13 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const MovieList=(props)=>{
+    const navigate=useNavigate()
     return(
         <>
-           <div className="contenaire">
+          
                {
                    props.movie.map((movie,index)=>(
-                       <div className="content-card" key={index}>
+                       <div className="content-card" key={index} onClick={()=>navigate("/description")} >
                            <div className="card-iage">
                               <img src={movie.posterURL} alt="movie" />
                            </div>
@@ -25,7 +26,7 @@ const MovieList=(props)=>{
                        </div>
                    ))
                }
-           </div>
+          
         </>
     )
 }

@@ -62,7 +62,7 @@
   align-items: center;
 }
 .add-movie button{
-  padding: 15px;
+  padding: 20px;
   border: 0;
   background: 0;
   cursor: pointer;
@@ -71,6 +71,12 @@
 }
 .add-movie{
   cursor: pointer;
+  width: 10%;
+  display: flex;
+  position: relative;
+  left: 550px;
+  justify-content: center;
+  align-items: center;
   background-color: purple;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9);
   border-radius: 5px;
@@ -94,7 +100,12 @@ background-color: red;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
   position: relative;
   z-index: 200;
-  top: 260px;
+  display: flex;
+  left: 680px;
+  top: -50px;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
   background-color: rgb(148, 128, 128);
   border-radius: 5px;
   display: none;
@@ -124,4 +135,29 @@ background-color: red;
 }
 .display{
   display: block;
+}
+.box-contenaire{
+  display:  flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0px 200px 0px 200px;
+}
+.box-image{
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+  height: 400px;
+  width: 30%;
+  margin-right: 1rem;
+  border-radius: 10px;
+}
+.box-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.box-decripation{
+  border: 5px solid purple;
+  height: 400px;
+  width: 70%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
 }
